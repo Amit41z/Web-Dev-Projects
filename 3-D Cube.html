@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-D CUBE</title>
+    <style>
+     /* *{
+        margin: 0;
+        padding: 0;
+      } */
+      body{
+        height: 100vh;
+        background: radial-gradient(rgb(6,150,253),rgb(49, 43, 160));
+      }
+      .container{
+        height: 60vh;
+        width: 30vw;
+        position: absolute;
+        top: 55vh;
+        left: 50vw; 
+        transform: translate(-50%,-50%);
+        perspective: 1000px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      }
+      .cube{
+        height: 250px;
+        width: 250px;
+        transform-style: preserve-3d;
+        animation: cubeAnimate 5s ease-in-out infinite ;
+      }
+      .card{
+        height: 250px;
+        width: 250px;
+        text-align: center;
+        border: 1px solid black;
+        padding: 100px 100px;
+        font-size: 25px;
+        box-sizing: border-box;
+        position: absolute;
+      }
+      @keyframes cubeAnimate {
+        0%{
+            transform: rotateX(45deg) rotateY(-45deg);
+        }
+        25%{
+            transform: rotateX(-45deg) rotateY(45deg);
+        }
+        50%{
+            transform: rotateX(45deg) rotateY(45deg);
+        }
+        100%{
+            transform: rotateZ(360deg);
+        }
+      }
+      #front{
+        transform: translateZ(125px);
+        background-color: rgb(232, 30, 30);
+      }
+      #back{
+        transform: translateZ(-125px);
+        background-color: white;
+      } 
+      #left{
+        right: 125px;
+        transform: rotateY(-90deg);
+        background-color: rgb(62, 238, 62);
+      }
+      #right{
+        left: 125px;
+        transform: rotateY(90deg);
+        background-color: rgb(57, 57, 236);
+      }
+      #top{
+        bottom: 125px;
+        transform: rotateX(90deg);
+        background-color: rgb(240, 176, 55);
+      }
+      #bottom{
+        top: 125px;
+        transform: rotateX(-90deg);
+        background-color: rgb(239, 239, 70);
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cube">
+            <div class="card" id="front">Front</div>
+            <div class="card" id="left">Left</div>
+            <div class="card" id="right">Right</div>
+            <div class="card" id="top">Top</div>
+            <div class="card" id="back">Back</div>
+            <div class="card" id="bottom">Bottom</div>
+        </div>
+    </div>
+</body>
+</html>
